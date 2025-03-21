@@ -1,25 +1,33 @@
 # https://www.dtidigital.com.br/blog/como-gerar-graficos-em-python#O-que-e-Matplotlib
-num = 7
+import matplotlib.pyplot as plt
+
+num = [3, 5, 7, 10, 2, 40, 15, 24]
+numeroMaximo = 0
 
 def isOdd(number):
-    if number % 2 == 0:
-        return False
-    else:
-        return True
+    return number % 2 != 0  # Retorna True se for ímpar, False se for par
 
 def math(num):
-    numeroMaximo = 0
+    global numeroMaximo  # Informa que estamos usando a variável global
     while num != 1:
-        if isOdd(num) == True:
+        if isOdd(num):
             num = num * 3 + 1
-            if num > numeroMaximo:
-                numeroMaximo = num
-        else:
-            num = num / 2
+            
             if num > numeroMaximo:
                 numeroMaximo = num
                 
-    return numeroMaximo
+        else:
+            num = num / 2
             
-math(num)
-print(f"numero max: {math(num)}")
+            if num > numeroMaximo:
+                numeroMaximo = num
+        
+        
+for i in num: 
+    math(i)
+    plt.plot(num, i, 'k--')
+    plt.plot(num, i, 'go')
+    
+plt.show()
+
+print(f"numero max: {numeroMaximo}")  # Exibe o maior número alcançado
