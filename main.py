@@ -9,25 +9,20 @@ def isOdd(number):
 
 def math(num):
     global numeroMaximo  # Informa que estamos usando a variável global
+    numerosGerados = []
     while num != 1:
         if isOdd(num):
             num = num * 3 + 1
-            
-            if num > numeroMaximo:
-                numeroMaximo = num
+            numerosGerados.append(num)
                 
         else:
             num = num / 2
-            
-            if num > numeroMaximo:
-                numeroMaximo = num
+            numerosGerados.append(num)
         
         
 for i in num: 
     math(i)
-    plt.plot(num, i, 'k--')
-    plt.plot(num, i, 'go')
     
-plt.show()
+    
 
 print(f"numero max: {numeroMaximo}")  # Exibe o maior número alcançado
